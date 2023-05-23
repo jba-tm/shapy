@@ -150,3 +150,5 @@ dmypy.json
 # Editor options
 .idea/
 .vcode/
+
+shapy_data.zip
