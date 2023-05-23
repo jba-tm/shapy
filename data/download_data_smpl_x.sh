@@ -8,4 +8,4 @@ username=$(urle $username)
 password=$(urle $password)
 
 wget --post-data "username=$username&password=$password" 'https://download.is.tue.mpg.de/download.php?domain=smplx&sfile=models_smplx_v1_1.zip' -O 'models_smplx_v1_1.zip' --no-check-certificate --continue
-unzip shapy_data.zip
+unzip models_smplx_v1_1.zip

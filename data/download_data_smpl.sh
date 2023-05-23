@@ -8,4 +8,4 @@ username=$(urle $username)
 password=$(urle $password)
 
 wget --post-data "username=$username&password=$password" 'https://download.is.tue.mpg.de/download.php?domain=smpl&sfile=SMPL_python_v.1.1.0.zip' -O 'SMPL_python_v.1.1.0.zip' --no-check-certificate --continue
-unzip shapy_data.zip
+unzip SMPL_python_v.1.1.0.zip
