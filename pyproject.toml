@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
 kornia = "^0.6.12"
-open3d = "^0.17.0"
+open3d = "^0.13.0"
 fastapi = "^0.95.2"
 pytorch-lightning = "^2.0.2"
 loguru = "^0.7.0"
