@@ -152,3 +152,5 @@ dmypy.json
 .vcode/
 
 shapy_data.zip
+
+.hosts
