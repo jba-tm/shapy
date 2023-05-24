@@ -27,7 +27,6 @@ from human_shape.data import build_all_data_loaders
 from human_shape.data.structures.image_list import to_image_list
 from human_shape.utils import Checkpointer, COLORS, OverlayRenderer, HDRenderer
 
-
 rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
 resource.setrlimit(resource.RLIMIT_NOFILE, (rlimit[1], rlimit[1]))
 
@@ -121,18 +120,17 @@ def undo_img_normalization(image, mean, std, add_alpha=True):
 
 @torch.no_grad()
 def main(
-    exp_cfg: DictConfig,
-    show: bool = False,
-    demo_output_folder: os.PathLike = 'demo_output',
-    pause: float = -1,
-    focal_length: float = 5000,
-    sensor_width: float = 36,
-    save_vis: bool = True,
-    save_params: bool = False,
-    save_mesh: bool = False,
-    split: str = 'test',
+        exp_cfg: DictConfig,
+        show: bool = False,
+        demo_output_folder: os.PathLike = 'demo_output',
+        pause: float = -1,
+        focal_length: float = 5000,
+        sensor_width: float = 36,
+        save_vis: bool = True,
+        save_params: bool = False,
+        save_mesh: bool = False,
+        split: str = 'test',
 ) -> None:
-
     device = torch.device('cuda')
     if not torch.cuda.is_available():
         logger.error('CUDA is not available!')
@@ -198,10 +196,10 @@ def main(
     else:
         body_dloader = dataloaders[part_key]
     #  if isinstance(dataloaders[part_key], (dict,)):
-        #  body_dloader = dataloaders[part_key]
+    #  body_dloader = dataloaders[part_key]
     #  elif isinstance(dataloaders[part_key], (list,)):
-        #  assert len(dataloaders[part_key]) == 1
-        #  body_dloader = dataloaders[part_key][0]
+    #  assert len(dataloaders[part_key]) == 1
+    #  body_dloader = dataloaders[part_key][0]
 
     total_time = 0
     cnt = 0
@@ -210,16 +208,16 @@ def main(
     for bidx, batch in enumerate(tqdm(body_dloader, dynamic_ncols=True)):
         full_imgs_list, body_imgs, body_targets = batch
         #  if full_imgs_list is None:
-            #  continue
-        #filename = body_targets[0].get_field('filename')
-        #subject_id = filename.split('/')[-3].split('_')[-3]
-        #if subject_id not in ['03279', '02474']:
+        #  continue
+        # filename = body_targets[0].get_field('filename')
+        # subject_id = filename.split('/')[-3].split('_')[-3]
+        # if subject_id not in ['03279', '02474']:
         #    continue
 
         if body_imgs is None:
             continue
         #  if bidx > 10:
-            #  break
+        #  break
 
         full_imgs = to_image_list(full_imgs_list)
         body_imgs = body_imgs.to(device=device)
@@ -298,7 +296,7 @@ def main(
                 out_img[key] = np.clip(
                     np.transpose(
                         out_img[key], [0, 2, 3, 1]) * 255, 0, 255).astype(
-                            np.uint8)
+                    np.uint8)
                 if 'left' in key:
                     out_img[key] = out_img[key][:, :, ::-1, :]
 
@@ -306,7 +304,6 @@ def main(
         #  logger.info(stage_n_out.keys())
         for idx in tqdm(range(len(body_targets)), 'Saving ...'):
             fname = body_targets[idx].get_field('fname')
-
 
             filename = body_targets[idx].get_field('filename', '')
             if filename != '':
@@ -371,7 +368,7 @@ if __name__ == '__main__':
     parser.add_argument('--output-folder', dest='output_folder',
                         default='demo_output', type=str,
                         help='The folder where the demo renderings will be' +
-                        ' saved')
+                             ' saved')
     parser.add_argument('--datasets', nargs='+',
                         default=['openpose'], type=str,
                         help='Datasets to process')

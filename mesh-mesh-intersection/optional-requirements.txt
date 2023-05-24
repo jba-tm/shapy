@@ -1,4 +1,4 @@
-pyrender>=0.1.23
+pyrender==0.1.45 ; python_version >= "3.8" and python_version < "3.12"
 shapely
-trimesh>=2.37.6
-smplx
+trimesh==3.21.7 ; python_version >= "3.8" and python_version < "3.12"
+smplx==0.1.28 ; python_version >= "3.8" and python_version < "3.12"

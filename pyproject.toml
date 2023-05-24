@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "shapy"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.12"
+kornia = "^0.6.12"
+open3d = "^0.17.0"
+fastapi = "^0.95.2"
+pytorch-lightning = "^2.0.2"
+loguru = "^0.7.0"
+matplotlib = "^3.7.1"
+opencv-python = "^4.7.0.72"
+torchgeometry = "^0.1.2"
+torchvision = "^0.15.2"
+omegaconf = "^2.3.0"
+fvcore = "^0.1.5.post20221221"
+trimesh = "^3.21.7"
+pyrender = "^0.1.45"
+nflows = "^0.14"
+jpeg4py = "^0.1.4"
+smplx = "^0.1.28"
+sklearn = "^0.0.post5"
+imageio = "^2.29.0"
+scikit-image = "^0.20.0"
+scikit-learn = "^1.2.2"
+scipy = ">=1.8,<1.9.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
