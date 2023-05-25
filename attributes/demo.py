@@ -44,7 +44,7 @@ def main(args, demo_output_folder, smpl_model_path, render=True):
                 logger.error('CUDA is not available!')
                 sys.exit(3)
 
-            smpl= smplx.create(
+            smpl = smplx.create(
                 model_path=smpl_model_path,
                 gender=model_gender,
                 num_betas=10,
@@ -80,7 +80,6 @@ def main(args, demo_output_folder, smpl_model_path, render=True):
                 pred_mesh = trimesh.Trimesh(shaped_vertices.detach().cpu().numpy()[0], smpl.faces)
                 pred_img = renderer.render(pred_mesh)
                 pred_img.save(osp.join(demo_output_folder, dataset.db['ids'][idx]+'.png'))
-
 
     elif network_type == 'b2a':
 

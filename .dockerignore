@@ -1,0 +1,7 @@
+.venv/
+.idea/
+venv
+requirements-old.txt
+.hosts
+
+__pycache__/

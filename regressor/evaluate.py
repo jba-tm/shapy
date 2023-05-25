@@ -20,11 +20,11 @@ import resource
 from threadpoolctl import threadpool_limits
 from loguru import logger
 
-from human_shape.utils.checkpointer import Checkpointer
-from human_shape.data import build_all_data_loaders
-from human_shape.models.build import build_model
-from human_shape.config import parse_args
-from human_shape.evaluation import build as build_evaluator
+from regressor.human_shape.utils.checkpointer import Checkpointer
+from regressor.human_shape.data import build_all_data_loaders
+from regressor.human_shape.models.build import build_model
+from regressor.human_shape.config import parse_args
+from regressor.human_shape.evaluation import build as build_evaluator
 
 rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
 resource.setrlimit(resource.RLIMIT_NOFILE, (rlimit[1], rlimit[1]))

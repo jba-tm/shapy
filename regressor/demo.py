@@ -20,12 +20,12 @@ from omegaconf import OmegaConf, DictConfig
 
 import resource
 
-from human_shape.config.defaults import conf as default_conf
-from human_shape.models.build import build_model
-from human_shape.models.body_models import KeypointTensor
-from human_shape.data import build_all_data_loaders
-from human_shape.data.structures.image_list import to_image_list
-from human_shape.utils import Checkpointer, COLORS, OverlayRenderer, HDRenderer
+from regressor.human_shape.config.defaults import conf as default_conf
+from regressor.human_shape.models.build import build_model
+from regressor.human_shape.models.body_models import KeypointTensor
+from regressor.human_shape.data import build_all_data_loaders
+from regressor.human_shape.data.structures.image_list import to_image_list
+from regressor.human_shape.utils import Checkpointer, COLORS, OverlayRenderer, HDRenderer
 
 rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
 resource.setrlimit(resource.RLIMIT_NOFILE, (rlimit[1], rlimit[1]))
@@ -38,8 +38,9 @@ def weak_persp_crop_to_blender(
         crop_size,
         sensor_width=36,
         focal_length=5000):
-    ''' Converts weak-perspective camera to a perspective camera
-    '''
+    """
+    Converts weak-perspective camera to a perspective camera
+    """
     if torch.is_tensor(camera_scale):
         camera_scale = camera_scale.detach().cpu().numpy()
     if torch.is_tensor(camera_transl):
