@@ -36,16 +36,8 @@ RUN python3.8 -m venv .venv/shapy
 RUN /shapy/.venv/shapy/bin/python3 -m pip install pip setuptools wheel --upgrade
 
 # ml data
-RUN mkdir /shapy/data
-COPY ./data/download_data.sh /shapy/data/download_data.sh
-COPY ./data/download_data_smpl.sh /shapy/data/download_data_smpl.sh
-COPY ./data/download_data_smpl_x.sh /shapy/data/download_data_smpl_x.sh
-RUN chmod +x /shapy/data/download_data.sh
-RUN chmod +x /shapy/data/download_data_smpl.sh
-RUN chmod +x /shapy/data/download_data_smpl_x.sh
-RUN /shapy/data/download_data.sh
-RUN /shapy/data/download_data_smpl_x.sh
-RUN mv /shapy/data/models /shapy/data/body_models
+COPY ./data /shapy/data
+
 
 # copy and install pip requirements
 COPY ./requirements.txt /shapy/requirements.txt
